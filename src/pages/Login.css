@@ -1,0 +1,134 @@
+/* Login — Spacio design language */
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #F9F8F6;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.login-card {
+  background: #FFFFFF;
+  border: 1.5px solid #E8E5DF;
+  border-radius: 20px;
+  padding: 52px 44px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.06);
+}
+
+.login-logo {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.logo-icon { font-size: 44px; }
+
+.login-logo h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.9rem;
+  font-weight: 600;
+  color: #1A1A1A;
+  margin: 10px 0 4px;
+  letter-spacing: -0.3px;
+}
+
+.login-logo p {
+  font-size: 0.8rem;
+  font-weight: 300;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: #B89A6A;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.form-group label {
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: #6B6860;
+  text-transform: uppercase;
+}
+
+.form-group input {
+  padding: 13px 16px;
+  border: 1.5px solid #E8E5DF;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: #1A1A1A;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  background: #FFFFFF;
+}
+
+.form-group input:focus {
+  border-color: #B89A6A;
+  box-shadow: 0 0 0 3px rgba(184, 154, 106, 0.15);
+}
+
+.form-group input::placeholder { color: #C0BBAF; }
+
+.error-msg {
+  color: #9B3434;
+  font-size: 0.82rem;
+  background: #FDF4F4;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #F0D4D4;
+}
+
+.login-form .btn-primary {
+  background: #1A1A1A;
+  color: #FFFFFF;
+  border: none;
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-family: 'Inter', system-ui, sans-serif;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  margin-top: 4px;
+  transition: background 0.2s, transform 0.15s;
+}
+.login-form .btn-primary:hover {
+  background: #333;
+  transform: translateY(-1px);
+}
+
+.login-hint {
+  text-align: center;
+  margin-top: 24px;
+  font-size: 0.78rem;
+  color: #B0A99F;
+}
+.login-hint strong {
+  color: #6B6860;
+  font-weight: 500;
+}
+
+.btn-back-landing {
+  display: block;
+  margin: 16px auto 0;
+  background: none;
+  border: none;
+  font-size: 0.8rem;
+  color: #B0A99F;
+  cursor: pointer;
+  font-family: 'Inter', system-ui, sans-serif;
+  transition: color 0.2s;
+}
+.btn-back-landing:hover { color: #B89A6A; }
