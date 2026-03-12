@@ -1,0 +1,194 @@
+/* ═══════════════════════════════════════════════
+   SPACIO — Global Design Tokens & Reset
+   ═══════════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* — Palette — */
+  --s-bg:        #F7F4F0;       /* warm cream page bg */
+  --s-surface:   #FFFFFF;       /* card / panel surface */
+  --s-surface-2: #F2EDE8;       /* secondary surface */
+  --s-border:    #E8E2D9;       /* subtle border */
+  --s-text:      #1A1A1A;       /* primary charcoal */
+  --s-text-2:    #6B6560;       /* secondary muted */
+  --s-text-3:    #9C9490;       /* tertiary / placeholder */
+  --s-accent:    #B8874B;       /* warm bronze */
+  --s-accent-d:  #9A6D38;       /* bronze darker (hover) */
+  --s-glow:      rgba(184,135,75,0.18);
+  --s-danger:    #C0392B;
+  --s-danger-d:  #A93226;
+
+  /* — Dark mode overrides (applied via .dark class on <html>) — */
+  --s-dark-bg:       #141210;
+  --s-dark-surface:  #1E1B18;
+  --s-dark-surface2: #252019;
+  --s-dark-border:   #2E2A24;
+  --s-dark-text:     #F0EDE8;
+  --s-dark-text2:    #A09890;
+
+  /* — Typography — */
+  --f-serif: 'Playfair Display', Georgia, serif;
+  --f-sans:  'Inter', system-ui, -apple-system, sans-serif;
+
+  /* — Spacing & Radius — */
+  --r-sm:   6px;
+  --r-md:   10px;
+  --r-lg:   16px;
+  --r-xl:   24px;
+
+  /* — Shadows — */
+  --sh-card: 0 2px 12px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04);
+  --sh-lift: 0 8px 32px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.06);
+  --sh-top:  0 -1px 0 var(--s-border);
+}
+
+/* Dark mode token swap */
+html.dark {
+  --s-bg:       var(--s-dark-bg);
+  --s-surface:  var(--s-dark-surface);
+  --s-surface-2:var(--s-dark-surface2);
+  --s-border:   var(--s-dark-border);
+  --s-text:     var(--s-dark-text);
+  --s-text-2:   var(--s-dark-text2);
+}
+
+/* ── Reset ── */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+html, body {
+  height: 100%;
+  font-family: var(--f-sans);
+  background: var(--s-bg);
+  color: var(--s-text);
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.3s, color 0.3s;
+}
+
+button  { cursor: pointer; font-family: var(--f-sans); }
+a       { color: inherit; text-decoration: none; }
+input, select, textarea { font-family: var(--f-sans); }
+
+/* ── Page entry animation ── */
+@keyframes pageIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Attach page-in to top-level page roots */
+.landing, .db-root, .room-setup-page, .editor, .preview-page {
+  animation: pageIn 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ── Shared app nav header ───────────────────── */
+.sp-nav {
+  background: var(--s-surface);
+  border-bottom: 1px solid var(--s-border);
+  padding: 0 32px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  flex-shrink: 0;
+}
+
+.sp-nav-logo {
+  font-family: var(--f-serif);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--s-text);
+  letter-spacing: -0.5px;
+}
+
+.sp-nav-right { display: flex; align-items: center; gap: 10px; }
+
+/* ── Shared button primitives ────────────────── */
+.sp-btn {
+  font-family: var(--f-sans);
+  font-size: 14.5px;
+  font-weight: 500;
+  border-radius: var(--r-md);
+  height: 38px;
+  padding: 0 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  outline: none;
+  border: none; /* Kept from original */
+  white-space: nowrap; /* Kept from original */
+}
+
+/* Primary: dark bg → always shows light text, hover slightly lighter */
+.sp-btn-primary {
+  background: var(--s-text);
+  color: #F7F4F0;
+}
+.sp-btn-primary:hover {
+  background: #3a3530;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+  color: #F7F4F0;
+}
+.sp-btn-primary:active { transform: translateY(0); box-shadow: none; }
+
+/* Accent: bronze → always white text */
+.sp-btn-accent {
+  background: var(--s-accent);
+  color: #fff;
+}
+.sp-btn-accent:hover {
+  background: var(--s-accent-d);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(184,135,75,0.35);
+  color: #fff;
+}
+.sp-btn-accent:active { transform: translateY(0); }
+
+/* Ghost: transparent + border → hover shows accent colour clearly */
+.sp-btn-ghost {
+  background: transparent;
+  color: var(--s-text-2);
+  border: 1.5px solid var(--s-border);
+}
+.sp-btn-ghost:hover {
+  border-color: var(--s-accent);
+  color: var(--s-accent);
+  box-shadow: 0 0 0 2px var(--s-glow), 0 0 12px var(--s-glow);
+}
+
+/* Danger */
+.sp-btn-danger {
+  background: var(--s-danger);
+  color: #fff;
+}
+.sp-btn-danger:hover {
+  background: var(--s-danger-d);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* ── Dark-mode toggle icon button ────────────── */
+.sp-dark-toggle {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid var(--s-border);
+  background: var(--s-surface);
+  color: var(--s-text-2);
+  font-size: 16px;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
+}
+.sp-dark-toggle:hover {
+  border-color: var(--s-accent);
+  color: var(--s-accent);
+  box-shadow: 0 0 0 3px var(--s-glow);
+}
