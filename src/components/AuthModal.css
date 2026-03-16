@@ -1,0 +1,197 @@
+/* AuthModal — Spacio design language */
+.auth-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.15s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.auth-modal {
+  background: var(--s-surface);
+  border: 1px solid var(--s-border);
+  border-radius: var(--r-xl, 20px);
+  padding: 40px;
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+  box-shadow: 0 12px 48px rgba(0,0,0,0.12);
+  position: relative;
+  text-align: center;
+  animation: slideUp 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.auth-modal .btn-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: transparent;
+  border: none;
+  color: var(--s-text-3);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, color 0.2s;
+}
+.auth-modal .btn-close:hover {
+  background: var(--s-surface-2);
+  color: var(--s-text);
+}
+
+.auth-logo {
+  margin-bottom: 28px;
+}
+.auth-logo .logo-icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+  display: inline-block;
+}
+.auth-logo h2 {
+  font-family: var(--f-serif);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--s-text);
+  margin-bottom: 6px;
+}
+.auth-logo p {
+  font-size: 0.9rem;
+  color: var(--s-text-2);
+}
+
+/* Choice View */
+.auth-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.auth-btn-primary {
+  background: var(--s-text);
+  color: var(--s-surface);
+  border: none;
+  padding: 13px;
+  border-radius: var(--r-md);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+.auth-btn-primary:hover {
+  background: var(--s-text-2);
+  transform: translateY(-1px);
+}
+
+.auth-btn-guest {
+  background: transparent;
+  color: var(--s-text);
+  border: 1.5px solid var(--s-border);
+  padding: 13px;
+  border-radius: var(--r-md);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.auth-btn-guest:hover {
+  border-color: var(--s-accent);
+  color: var(--s-accent);
+}
+
+.auth-divider {
+  position: relative;
+  text-align: center;
+  margin: 4px 0;
+}
+.auth-divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0; right: 0;
+  height: 1px;
+  background: var(--s-border);
+}
+.auth-divider span {
+  position: relative;
+  background: var(--s-surface);
+  padding: 0 12px;
+  font-size: 0.8rem;
+  color: var(--s-text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Login View */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: left;
+}
+
+.auth-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.auth-form label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--s-text-2);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.auth-form input {
+  padding: 12px 14px;
+  border: 1.5px solid var(--s-border);
+  border-radius: var(--r-md);
+  font-size: 0.95rem;
+  color: var(--s-text);
+  background: var(--s-surface);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.auth-form input:focus {
+  border-color: var(--s-accent);
+  box-shadow: 0 0 0 3px var(--s-glow);
+}
+
+.auth-hint {
+  font-size: 0.8rem;
+  color: var(--s-text-3);
+  margin-top: 16px;
+}
+.auth-hint strong {
+  color: var(--s-text-2);
+}
+
+.auth-btn-back {
+  background: none;
+  border: none;
+  color: var(--s-text-2);
+  font-size: 0.85rem;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: color 0.2s;
+}
+.auth-btn-back:hover {
+  color: var(--s-text);
+}
