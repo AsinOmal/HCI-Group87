@@ -1,0 +1,83 @@
+.preview3d {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: #1a1714;
+}
+
+/* ── Top Bar ── */
+.preview-topbar {
+  background: var(--s-surface);
+  border-bottom: 1px solid var(--s-border);
+  padding: 0 48px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  transition: background 0.3s, border-color 0.3s;
+}
+
+
+.preview-topbar .topbar-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--s-text);
+  font-family: var(--f-sans);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.btn-back2d {
+  background: transparent;
+  color: var(--s-text-2);
+  border: 1.5px solid var(--s-border);
+  padding: 7px 14px;
+  border-radius: var(--r-md);
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.18s;
+}
+.btn-back2d:hover { border-color: var(--s-accent); color: var(--s-accent); }
+
+.topbar-hint {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--s-text-3);
+  font-weight: 500;
+}
+
+/* ── Canvas fills remaining space ── */
+.canvas3d { flex: 1; overflow: hidden; }
+
+/* ── Info bar ── */
+.info-bar {
+  background: var(--s-surface);
+  border-top: 1px solid var(--s-border);
+  padding: 9px 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12.5px;
+  color: var(--s-text-2);
+  flex-shrink: 0;
+}
+
+/* ── Responsive Overrides ── */
+@media (max-width: 950px) {
+  .preview-topbar { padding: 18px 28px; }
+  .preview-topbar .topbar-title { display: none; }
+}
+
+@media (max-width: 700px) {
+  .preview-topbar { flex-direction: column; height: auto; padding: 12px; gap: 8px; }
+  .topbar-hint { justify-content: center; width: 100%; }
+}
